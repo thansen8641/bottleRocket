@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './components/App.jsx';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux'
-import rootReducer from './reducer/rootReducer.jsx';
+import rootReducer from './store/reducers/rootReducer.jsx';
 
 const store = createStore(rootReducer)
 store.subscribe(() => console.log('Updated State', store.getState()))
