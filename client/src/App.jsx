@@ -1,43 +1,35 @@
-import React, { useEffect } from 'react';
-import axios from 'axios'
+import React from 'react';
 import Header from './components/Header.jsx'
+import ProductList from './components/ProductList.jsx'
 import { connect } from "react-redux";
-import { setRestaurantData } from './store/actions/restaurantActions.jsx'
-
+import ProductView from './components/ProductView.jsx'
 
 const App = (props) => {
-  const { setRestaurantData, dataLoaded, restaurants } = props
-
-  useEffect(() => {
-    if (!dataLoaded) {
-      axios.get('https://s3.amazonaws.com/br-codingexams/restaurants.json')
-      .then((response) => {
-        setRestaurantData(response.data)
-      })
-      .catch((err) => {
-        console.log('error getting data', err)
-      })
-    }
-
-  }, [])
+  const { restaurantSelected } = props
+  console.log('restaurantSelected', restaurantSelected)
 
   return (
     <div>
       <Header />
+      <div style={{ display: 'flex' }}>
+        <ProductList />
+        {restaurantSelected ? (
+          <ProductView restaurantSelected={restaurantSelected} />
+        ) : (null)}
+      </div>
     </div>
   )
 }
 
 const mapStateToProps = (state) => {
-  console.log('state', state)
+  console.log('statestate', state.restaurants.restaurantSelected)
   return {
     dataLoaded: state.restaurants.dataLoaded,
-    restaurants: state.restaurants.restaurants
+    restaurantSelected: state.restaurants.restaurantSelected
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  setRestaurantData: (data) => dispatch(setRestaurantData(data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

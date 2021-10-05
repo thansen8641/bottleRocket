@@ -1,13 +1,16 @@
 import React from 'react';
 import { connect } from "react-redux";
-
+// import mapLogo from './icon_map@2x.png'
 
 const Header = (props) => {
   return (
     <div>
-      <h1 style={{ backgroundColor: "rgb(67,232,149)", color: "#FFFFFF", height: "7%", display: "flex", alignItems: "center", justifyContent: "center"}}>
+      <h1 className='headerText'>
         Lunch Thyme
       </h1>
+      {/* <div>
+        <img src={mapLogo}/>
+      </div> */}
     </div>
   )
 }

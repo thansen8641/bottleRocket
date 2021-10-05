@@ -1,10 +1,12 @@
 const restaurants = []
 const dataLoaded = false
+const restaurantSelected = false
 
 
 export const initState = {
   restaurants,
-  dataLoaded
+  dataLoaded,
+  restaurantSelected
 }
 
 
@@ -14,6 +16,11 @@ export default (state = initState, action) => {
       var toReturn = {...state}
       toReturn.restaurants = action.data
       toReturn.dataLoaded = true
+      return toReturn
+
+    case "SET_RESTAURANT_SELECTED":
+      var toReturn = {...state}
+      toReturn.restaurantSelected = action.restaurantSelected
       return toReturn
 
     default:
