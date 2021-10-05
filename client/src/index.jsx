@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App.jsx';
-import { createStore } from 'redux';
+import App from './App.jsx';
 import { Provider } from 'react-redux'
 import rootReducer from './store/reducers/rootReducer.jsx';
+import { applyMiddleware, createStore, compose } from 'redux'
 
 const store = createStore(rootReducer)
-store.subscribe(() => console.log('Updated State', store.getState()))
 
-ReactDOM.render(<Provider store={store} ><App/> </Provider>, document.getElementById('app'))
+ReactDOM.render(
+  <Provider store={store} >
+    <App />
+  </Provider>,
+  document.getElementById('app')
+);
