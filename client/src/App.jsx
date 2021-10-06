@@ -6,7 +6,6 @@ import ProductView from './components/ProductView.jsx'
 
 const App = (props) => {
   const { restaurantSelected } = props
-  console.log('restaurantSelected', restaurantSelected)
 
   return (
     <div>
