@@ -10,7 +10,7 @@ const App = (props) => {
   return (
     <div>
       <Header />
-      <div style={{ display: 'flex', zIndex: 9999, marginTop: "75px" }}>
+      <div style={{ display: 'flex', zIndex: 9999, marginTop: "75px", height: "100%" }}>
         <ProductList />
         {restaurantSelected ? (
           <ProductView restaurantSelected={restaurantSelected} />

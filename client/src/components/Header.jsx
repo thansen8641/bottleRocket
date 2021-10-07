@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from "react-redux";
-// import mapLogo from './icon_map@2x.png'
+import mapLogo from '../../dist/Cuts/icon_map@2x.png'
+import backBtn from '../../dist/Cuts/ic_webBack@2x.png'
 
 const Header = (props) => {
   return (
     <div className='headerMainDiv'>
+      {window.screen.width < 1100 ? (
+        <img className='headerBtns' src={backBtn} />
+      ) : (
+        <div style={{ display: "hidden" }}></div>
+      )}
+
       <h1 className='headerText'>
         Lunch Thyme
       </h1>
-      {/* <div>
-        <img src={mapLogo}/>
-      </div> */}
+      <img className='headerBtns' src={mapLogo} />
     </div>
   )
 }

@@ -17,13 +17,19 @@ module.exports = {
         test: /\.jsx?/,
         exclude: /node_modules/,
         include: SRC_DIR,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-react', '@babel/preset-env'],
-            plugins: ['@babel/transform-runtime']
-          }
-        }
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-react', '@babel/preset-env'],
+              plugins: ['@babel/transform-runtime']
+            }
+          },
+        ]
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        loader: 'file-loader',
       }
     ]
   },

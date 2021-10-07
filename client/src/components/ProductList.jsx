@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from "react-redux";
 import axios from 'axios'
 import { setRestaurantData, selectRestaurant } from '../store/actions/restaurantActions.jsx'
+import loader from '../../dist/loader.gif'
 
 
 const ProductList = (props) => {
@@ -31,23 +32,32 @@ const ProductList = (props) => {
 
   // AIzaSyBFXuyAJXgU2_7ydtTmjKpSlK8R34mt0m0
   return (
-    <div className='productListMainDiv' >
-      {data && data.map((restaurant, index) => (
-        <div onClick={() => selectRestaurant(restaurant)} key={index} style={{ width: "100%", }}>
-          <div className='productListHeaderDetails'>
-            <div className='productListRestaurantDetail'>
-              <h1 className='productListRestaurantName'>
-                {restaurant.name}
-              </h1>
-              <p style={{ fontWeight: 600 }}>
-                {restaurant.category}
-              </p>
+    dataLoaded ? (
+      <div className='productListMainDiv' >
+
+        {data && data.map((restaurant, index) => (
+          <div onClick={() => selectRestaurant(restaurant)} key={index}
+            className='singleProductDiv'>
+            <div className='productListHeaderDetails'>
+              <div className='productListRestaurantDetail'>
+                <h1 className='productListRestaurantName'>
+                  {restaurant.name}
+                </h1>
+                <p style={{ fontWeight: 600 }}>
+                  {restaurant.category}
+                </p>
+              </div>
             </div>
+            <img className='productListImage' src={restaurant.backgroundImageURL} />
           </div>
-          <img style={{ maxWidth: "100%" }} src={restaurant.backgroundImageURL} />
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    ) : (
+      <div style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <img style={{ height: "30%" }} src={loader} />
+      </div>
+    )
+
   )
 }
 
