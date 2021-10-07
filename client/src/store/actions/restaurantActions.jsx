@@ -9,3 +9,10 @@ export const setRestaurantData = (data) => {
     data
   }
 }
+
+export const selectRestaurant = (restaurantSelected) => {
+  return {
+    type: "SET_RESTAURANT_SELECTED",
+    restaurantSelected
+  }
+}
