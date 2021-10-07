@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 const Header = (props) => {
   return (
-    <div>
+    <div className='headerMainDiv'>
       <h1 className='headerText'>
         Lunch Thyme
       </h1>

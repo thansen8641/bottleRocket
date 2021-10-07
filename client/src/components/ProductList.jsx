@@ -31,16 +31,18 @@ const ProductList = (props) => {
 
   // AIzaSyBFXuyAJXgU2_7ydtTmjKpSlK8R34mt0m0
   return (
-    <div style={{ width: "50%", zIndex: 9000 }}>
+    <div className='productListMainDiv' >
       {data && data.map((restaurant, index) => (
         <div onClick={() => selectRestaurant(restaurant)} key={index} style={{ width: "100%", }}>
-          <div className='productListHeaderDetails' style={{display: "flex", flexDirection: "column", position: 'absolute', color: "white" }}>
-            <h1>
-              {restaurant.name}
-            </h1>
-            <p>
-              {restaurant.name}
-            </p>
+          <div className='productListHeaderDetails'>
+            <div className='productListRestaurantDetail'>
+              <h1 className='productListRestaurantName'>
+                {restaurant.name}
+              </h1>
+              <p style={{ fontWeight: 600 }}>
+                {restaurant.category}
+              </p>
+            </div>
           </div>
           <img style={{ maxWidth: "100%" }} src={restaurant.backgroundImageURL} />
         </div>

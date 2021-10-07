@@ -15,8 +15,8 @@ const ProductView = (props) => {
     <div className='productDetailMainDiv' >
       <GoogleMap restaurantSelected={restaurantSelected} />
       {/* <div className='mockmapdiv' style={{ height: "60%", backgroundColor: "yellow" }}></div> */}
-      <div className='productViewRestaurantNameDiv' style={{ backgroundColor: "rgb(52,179,121)", height: "10%", color: "white", padding: "20px", zIndex: 3 }}>
-        <h1>
+      <div className='productViewRestaurantNameDiv'>
+        <h1 style={{margin: "0px"}}>
           {restaurantSelected.name}
         </h1>
         <p>
@@ -24,7 +24,7 @@ const ProductView = (props) => {
         </p>
       </div>
 
-      <div style={{ height: "100%", display: "flex", flexDirection: "column", padding: "20px", zIndex: 3 }}>
+      <div className='locationAndContactDetailsDiv'>
         <span>{restaurantSelected.location.address}</span>
 
         <span style={{ marginBottom: "20px" }}>{restaurantSelected.location.city + ', ' + restaurantSelected.location.state + ' ' + restaurantSelected.location.postalCode}</span>
